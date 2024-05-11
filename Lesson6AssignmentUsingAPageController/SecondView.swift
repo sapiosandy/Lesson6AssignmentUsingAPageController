@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct SecondView: View {
+    @EnvironmentObject var secondViewText: Shared
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.teal)
+            VStack {
+                Text("This is the second view")
+                TextField("Type here", text: $secondViewText.message)
+                    .padding()
+                    .textFieldStyle(.roundedBorder)
+            }
+        }
     }
 }
 

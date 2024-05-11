@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct FirstView: View {
+    @EnvironmentObject var firstViewText: Shared    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.gray)
+            VStack {
+                Text("This is the first view")
+                TextField("Type here", text: $firstViewText.message)
+                    .padding()
+                    .textFieldStyle(.roundedBorder)
+            }
+        }
     }
 }
 

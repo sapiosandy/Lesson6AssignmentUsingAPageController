@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ThirdView: View {
+    @EnvironmentObject var lastViewText: Shared
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.mint)
+            VStack {
+                Text("This is the third view")
+                TextField("Type here", text: $lastViewText.message)
+                    .padding()
+                    .textFieldStyle(.roundedBorder)
+            }
+        }
     }
 }
 
